@@ -1,8 +1,15 @@
 import { useState } from "react";
 import "./App.css";
+import Question from "./components/Question";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [innerText, setInnerText] = useState(
+    "What is the deepest lake in the world?"
+  );
+
+  const updateInnerText = () => {
+    setInnerText("Lake Baikal, in Southern Siberia");
+  };
 
   return (
     <>
@@ -10,16 +17,9 @@ function App() {
         <h1>Question + Answer App</h1>
       </header>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+        <p></p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Question onClick={updateInnerText} textToDisplay={innerText}></Question>
     </>
   );
 }
